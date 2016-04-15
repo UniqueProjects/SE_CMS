@@ -22,9 +22,9 @@ namespace SE_CMS_PROJECT
            // objBALloaction.UpdateLocation(objlocationfield);
             DataSet ds= objBALloaction.GetLocations();
            // string result = JsonConvert.SerializeObject(DatatableToDictionary(ds.Tables[0], "Location_Id"), Newtonsoft.Json.Formatting.Indented);
-            string LocJson = DataTableToJSONWithJavaScriptSerializer(ds.Tables[0]);
-           string   locjson= LocJson.Replace(@"\","");
-            hndLocJson.Value = locjson;
+//            string LocJson = DataTableToJSONWithJavaScriptSerializer(ds.Tables[0]);
+    //       string   locjson= LocJson.Replace(@"\","");
+      //      hndLocJson.Value = locjson;
           //  string result = JsonConvert.SerializeObject(DatatableToDictionary(ds.Tables[0], "Title"), Newtonsoft.Json.Formatting.Indented);
             //  objBALloaction.DisableLocation(objlocationfield);
             // objBALloaction.InsertLocation(objlocationfield);        

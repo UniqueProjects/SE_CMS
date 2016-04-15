@@ -28,9 +28,9 @@
         var labelIndex = 0;
 
         function initialize() {
-            var LocJsonSS = '';
+         //   var LocJsonSS = '';
 
-          LocJsonSS = document.getElementById('<%= hndLocJson.ClientID%>');
+       //   LocJsonSS = document.getElementById('<%= hndLocJson.ClientID%>');
             //  var fixedResponse = LocJsonSS.responseText.replace(/\\'/g, "'");
              //var  LocJsonSS1 = LocJsonSS.replace(@"\", " ");
             //parsing the json object
