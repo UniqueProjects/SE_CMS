@@ -129,12 +129,14 @@ namespace SE_CMS_PROJECT
                 SqlCommand cmd = new SqlCommand("DisableLocation", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Location_Id", objBEL.Location_Id);
+                cmd.Parameters.AddWithValue("@Location_Status", objBEL.Location_Status);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
                 result = cmd.ExecuteNonQuery();
                 cmd.Dispose();
+                emptylocationfield(objBEL);
                 if (result > 0)
                 {
                     return result;
@@ -157,6 +159,59 @@ namespace SE_CMS_PROJECT
             }
         }
 
+        public void emptylocationfield(LocationField objBEL)
+        {
+            objBEL.Location_Id = -1;
+            objBEL.Location_Name = "";
+            objBEL.Location_latitude = "";
+            objBEL.Location_latitude = "";
+            objBEL.Location_Status = true;
+        }
+
+        public Int32 CheckLogin(LoginFields objLoginFields)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                int result = 1;
+                    SqlCommand cmd = new SqlCommand("CheckLogin", con);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Username", objLoginFields.Username);
+                cmd.Parameters.AddWithValue("@Password", objLoginFields.Password);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(ds);
+                cmd.Dispose();
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                
+                cmd.Dispose();
+                if (ds.Tables[0].Rows.Count != 0)
+                {
+                    return result ;
+                    //return result;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (con.State != ConnectionState.Closed)
+                {
+                    con.Close();
+                }
+            }
+        }
 
     }
+
+
 }

@@ -13,4 +13,10 @@ namespace SE_CMS_PROJECT
         public string Location_Longitude { get; set; }
         public Boolean Location_Status { get; set; }
     }
+
+    public class LoginFields {
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+    }
 }

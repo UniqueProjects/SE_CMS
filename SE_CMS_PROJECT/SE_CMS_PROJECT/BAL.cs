@@ -80,7 +80,23 @@ namespace SE_CMS_PROJECT
             }
         }
 
-
+        public Int32 CheckLogin(LoginFields objLoginFields)
+        {
+            DataSet ds = new DataSet();
+            DAL objDAL = new DAL();
+            try
+            {
+                return objDAL.CheckLogin(objLoginFields);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                objDAL = null;
+            }
+        }
 
     }
 
