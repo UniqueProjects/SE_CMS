@@ -9,7 +9,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
-
+using System.Configuration;
+using System.Collections.Generic;
 
 namespace SE_CMS_PROJECT
 {
@@ -19,13 +20,15 @@ namespace SE_CMS_PROJECT
         {            LocationField objlocationfield = new LocationField();
             BAL objBALloaction =new BAL();
             //objBALloaction.InsertLocation(objlocationfield);
-           // objBALloaction.UpdateLocation(objlocationfield);
-            DataSet ds= objBALloaction.GetLocations();
-           // string result = JsonConvert.SerializeObject(DatatableToDictionary(ds.Tables[0], "Location_Id"), Newtonsoft.Json.Formatting.Indented);
-//            string LocJson = DataTableToJSONWithJavaScriptSerializer(ds.Tables[0]);
-    //       string   locjson= LocJson.Replace(@"\","");
-      //      hndLocJson.Value = locjson;
-          //  string result = JsonConvert.SerializeObject(DatatableToDictionary(ds.Tables[0], "Title"), Newtonsoft.Json.Formatting.Indented);
+            // objBALloaction.UpdateLocation(objlocationfield);
+            DataSet ds = objBALloaction.GetLocations();
+            
+                string ans = JsonConvert.SerializeObject(ds.Tables[0], Formatting.Indented);
+            // string result = JsonConvert.SerializeObject(DatatableToDictionary(ds.Tables[0], "Location_Id"), Newtonsoft.Json.Formatting.Indented);
+            //            string LocJson = DataTableToJSONWithJavaScriptSerializer(ds.Tables[0]);
+            //       string   locjson= LocJson.Replace(@"\","");
+            //      hndLocJson.Value = locjson;
+            //  string result = JsonConvert.SerializeObject(DatatableToDictionary(ds.Tables[0], "Title"), Newtonsoft.Json.Formatting.Indented);
             //  objBALloaction.DisableLocation(objlocationfield);
             // objBALloaction.InsertLocation(objlocationfield);        
             // Create MySQLConnection Object

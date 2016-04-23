@@ -26,10 +26,11 @@ namespace SE_CMS_PROJECT
             try
             {
                 SqlCommand cmd = new SqlCommand("InsertLocation", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Location_Name", objBEL.Location_latitude);
-                cmd.Parameters.AddWithValue("@Location_Latitude", objBEL.Location_Longitude);
-                cmd.Parameters.AddWithValue("@Location_Longitude", objBEL.Location_Name);
+                cmd.CommandType = CommandType.StoredProcedure; 
+               // cmd.Parameters.AddWithValue("@Location_Id", objBEL.Location_Id);
+                cmd.Parameters.AddWithValue("@Location_Name", objBEL.Location_Name);
+                cmd.Parameters.AddWithValue("@Location_Latitude", objBEL.Location_latitude);
+                cmd.Parameters.AddWithValue("@Location_Longitude", objBEL.Location_Longitude);
                 cmd.Parameters.AddWithValue("@Location_Status", objBEL.Location_Status);
                 if (con.State == ConnectionState.Closed)
                 {
